@@ -36,4 +36,14 @@ describe("ComponentWithGetters", () => {
 
         expect(wrapper.find(".fullname").text()).toBe("Alice Doe")
     })
+
+    it("computedのmountオプションを用いてfullnameをレンダーする", () => {
+        const wrapper = mount(ComponentWithGetters, {
+            computed: {
+                fullname: () => "Alice Doe"
+            }
+        })
+
+        expect(wrapper.find(".fullname").text()).toBe("Alice Doe")
+    })
 })
